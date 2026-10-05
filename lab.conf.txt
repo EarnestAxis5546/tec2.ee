@@ -1,0 +1,15 @@
+server:
+    interface: 0.0.0.0
+    access-control: 10.10.10.0/24 allow
+    access-control: 10.10.20.0/24 allow
+    do-ip4: yes
+    do-udp: yes
+    do-tcp: yes
+
+    local-zone: "lab.local." static
+
+    local-data: "router.lab.local. IN A 10.10.10.1"
+    local-data: "client.lab.local. IN A 10.10.10.20"
+
+    local-data: "1.10.10.10.in-addr.arpa. IN PTR router.lab.local."
+    local-data: "20.10.10.10.in-addr.arpa. IN PTR client.lab.local."
