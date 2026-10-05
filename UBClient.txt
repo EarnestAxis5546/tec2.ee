@@ -1,0 +1,16 @@
+ip route show
+3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:a1:be:9b brd ff:ff:ff:ff:ff:ff
+    altname enx080027a1be9b
+    inet 10.10.10.20/24 brd 10.10.10.255 scope global enp0s8
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fea1:be9b/64 scope link proto kernel_ll
+       valid_lft forever preferred_lft forever
+default via 10.0.2.2 dev enp0s3 proto dhcp src 10.0.2.15 metric 100
+10.0.2.0/24 dev enp0s3 proto kernel scope link src 10.0.2.15 metric 100
+10.0.2.2 dev enp0s3 proto dhcp scope link src 10.0.2.15 metric 100
+10.10.10.0/24 dev enp0s8 proto kernel scope link src 10.10.10.20
+10.10.20.0/24 via 10.10.10.1 dev enp0s8 proto static
+192.168.56.0/24 dev enp0s10 proto kernel scope link src 192.168.56.106 metric 1024
+192.168.253.11 via 10.0.2.2 dev enp0s3 proto dhcp src 10.0.2.15 metric 100
+192.168.253.12 via 10.0.2.2 dev enp0s3 proto dhcp src 10.0.2.15 metric 100

@@ -1,0 +1,43 @@
+dig client.lab.local
+dig -x 10.10.10.20
+
+; <<>> DiG 9.20.24-1ubuntu0.3-Ubuntu <<>> client.lab.local
+;; global options: +cmd
+;; Got answer:
+;; WARNING: .local is reserved for Multicast DNS
+;; You are currently testing what happens when an mDNS query is leaked to DNS
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 5315
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; QUESTION SECTION:
+;client.lab.local.              IN      A
+
+;; ANSWER SECTION:
+client.lab.local.       3600    IN      A       10.10.10.20
+
+;; Query time: 2 msec
+;; SERVER: 127.0.0.1#53(127.0.0.1) (UDP)
+;; WHEN: Mon Oct 05 06:48:38 UTC 2026
+;; MSG SIZE  rcvd: 61
+
+
+; <<>> DiG 9.20.24-1ubuntu0.3-Ubuntu <<>> -x 10.10.10.20
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 15643
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; QUESTION SECTION:
+;20.10.10.10.in-addr.arpa.      IN      PTR
+
+;; ANSWER SECTION:
+20.10.10.10.in-addr.arpa. 3600  IN      PTR     client.lab.local.
+
+;; Query time: 2 msec
+;; SERVER: 127.0.0.1#53(127.0.0.1) (UDP)
+;; WHEN: Mon Oct 05 06:48:38 UTC 2026
+;; MSG SIZE  rcvd: 83

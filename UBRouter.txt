@@ -1,0 +1,49 @@
+ip route show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:bb:35:2f brd ff:ff:ff:ff:ff:ff
+    altname enx080027bb352f
+    inet 10.0.2.15/24 metric 100 brd 10.0.2.255 scope global dynamic enp0s3
+       valid_lft 85499sec preferred_lft 85499sec
+    inet6 fd17:625c:f037:2:a00:27ff:febb:352f/64 scope global dynamic mngtmpaddr noprefixroute
+       valid_lft 86036sec preferred_lft 14036sec
+    inet6 fe80::a00:27ff:febb:352f/64 scope link proto kernel_ll
+       valid_lft forever preferred_lft forever
+3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:eb:f0:15 brd ff:ff:ff:ff:ff:ff
+    altname enx080027ebf015
+    inet 192.168.56.103/24 metric 100 brd 192.168.56.255 scope global dynamic enp0s8
+       valid_lft 600sec preferred_lft 600sec
+    inet6 fe80::a00:27ff:feeb:f015/64 scope link proto kernel_ll
+       valid_lft forever preferred_lft forever
+4: enp0s9: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:cf:9c:3e brd ff:ff:ff:ff:ff:ff
+    altname enx080027cf9c3e
+    inet 10.10.10.1/24 brd 10.10.10.255 scope global enp0s9
+       valid_lft forever preferred_lft forever
+    inet6 fd00:10:10:10::1/64 scope global
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fecf:9c3e/64 scope link proto kernel_ll
+       valid_lft forever preferred_lft forever
+5: enp0s10: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:bd:a2:a1 brd ff:ff:ff:ff:ff:ff
+    altname enx080027bda2a1
+    inet 10.10.20.1/24 brd 10.10.20.255 scope global enp0s10
+       valid_lft forever preferred_lft forever
+    inet6 fd00:10:20:20::1/64 scope global
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:febd:a2a1/64 scope link proto kernel_ll
+       valid_lft forever preferred_lft forever
+default via 10.0.2.2 dev enp0s3 proto dhcp src 10.0.2.15 metric 100
+10.0.2.0/24 dev enp0s3 proto kernel scope link src 10.0.2.15 metric 100
+10.0.2.2 dev enp0s3 proto dhcp scope link src 10.0.2.15 metric 100
+10.10.10.0/24 dev enp0s9 proto kernel scope link src 10.10.10.1
+10.10.20.0/24 dev enp0s10 proto kernel scope link src 10.10.20.1
+192.168.56.0/24 dev enp0s8 proto kernel scope link src 192.168.56.103 metric 100
+192.168.253.11 via 10.0.2.2 dev enp0s3 proto dhcp src 10.0.2.15 metric 100
+192.168.253.12 via 10.0.2.2 dev enp0s3 proto dhcp src 10.0.2.15 metric 100
